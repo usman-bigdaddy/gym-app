@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\trainer;
 use App\Models\classes;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 class ClassesController extends Controller
 {
     /**
@@ -51,7 +52,6 @@ class ClassesController extends Controller
         $this->validate($request, [
             'class_name'=>'required |max:50',
             'class_description'=>'required | max:255',
-            'class_duration'=>'required | max:25',
             'trainer_id'=>'required',
             'image'=>'required|image|mimes:jpeg,png,jpg,gif|max:5048'
          ]);
@@ -59,7 +59,7 @@ class ClassesController extends Controller
          $admin = classes::create([
              'class_name' => $request['class_name'],
              'class_description' => $request['class_description'],
-             'class_duration' => $request['class_duration'],
+             'class_duration' => '45 Minutes',
              'trainer_id' => $request['trainer_id'],
              'class_image'=>'classes_images/'.$new_image_name 
          ]);
@@ -111,7 +111,6 @@ class ClassesController extends Controller
             $validatedData = $request->validate([
                 'class_name'=>'required |max:50',
                 'class_description'=>'required | max:255',
-                'class_duration'=>'required | max:25',
                 'trainer_id'=>'required | max:25',
             ]);
         }
@@ -119,7 +118,6 @@ class ClassesController extends Controller
             $validatedData = $request->validate([
                 'class_name'=>'required |max:50',
                 'class_description'=>'required | max:255',
-                'class_duration'=>'required | max:25' 
             ]);
         }   
         classes::find($id)->update($validatedData);
@@ -152,5 +150,63 @@ class ClassesController extends Controller
     {
         $res = classes::where('trainer_id', Auth::guard('trainer')->user()->id)->get();
         return view("trainer.my-classes")->with("classes",$res);
+    }
+    public function my_classes_member()
+    {
+         $res =Enrollment::join('classes', 'enrollments.class_id', '=', 'classes.id')
+        ->where('enrollments.user_id',Auth::user()->id)
+        ->get(['classes.*', 'enrollments.*']);
+        return view('my-profile')
+        ->with("classes",$res)
+        ->with('breadcrumb_title', 'My Profile');
+    }
+    public function edit_member_profile(Request $request)
+    {
+        //Change Password
+        $user = Auth::user();
+        $user->member_firstname = $request->get('member_firstname');
+        $user->member_lastname = $request->get('member_lastname');
+        $user->member_phonenumber = $request->get('member_phonenumber');
+        $user->save();
+        return response()->json(array('msg' => "Sucess,Refresh to see changes"));
+    }
+    public function member_change_password(Request $request)
+    {
+            
+            if ($request->isMethod('post')) {
+            if (!(Hash::check($request->get('currentpassword'), Auth::user()->password))) {
+                // The passwords matches
+                return response()->json(array('msg' => "Your current password does not match with the password you provided. Please try again"));
+                //return back()->with("error","Your current password does not matches with the password you provided. Please try again.");
+            }
+            
+            if(strcmp($request->get('currentpassword'), $request->get('newpassword')) == 0){
+                //Current password and new password are same
+                return response()->json(array('msg' => "New Password cannot be same as your current password. Please choose a different password"));
+                //return back()->with("error","New Password cannot be same as your current password. Please choose a different password.");
+            }
+    
+            if(!(strcmp($request->get('newpasswordconfirm'), $request->get('newpassword')) == 0)){
+                //Current password and new password are same
+                return response()->json(array('msg' => "Password Mismatch"));
+                //return back()->with("error","New Password cannot be same as your current password. Please choose a different password.");
+            }  
+
+            //Change Password
+            $user = Auth::user();
+            $user->password = Hash::make($request->get('newpassword'));
+            $user->save();
+            return response()->json(array('msg' => "Password changed successfully"));
+            //return back()->with("success","Password changed successfully !");
+        }
+        else{
+            return view("change-password")->with('breadcrumb_title','Change Passowrd');
+        }     
+    }
+
+    public function un_enroll($id)
+    {
+        Enrollment::find($id)->delete();
+        return back()->with('success',"Successfully Deleted,If no change,please refresh page");
     }
 }

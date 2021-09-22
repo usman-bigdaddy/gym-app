@@ -17,33 +17,15 @@
             <div class="row">
                 <div class="col-lg-7">
                     <div class="about-text">
-                        <p class="t-text">Pellentesque dictum nisl in nibh dictum volutpat nec a quam. Vivamus
-                            suscipit
-                            nisl quis nulla pretium, vitae ornare leoltricies arcu a tellus pellentesque ultrices. Ut
-                            euismod luctus elit id eleifend. Donec semper massa a imperdiet mattis. In vel mattis neque, nec
-                            ultricies lectus. Morbi auctor lacus nec hendrerit consectetur. </p>
-                        <div class="about-features">
-                            <div class="about-features-item">
-                                <div class="about-feature-img">
-                                    <img src="img/check.png" alt="">
-                                </div>
-                                <div class="about-feature-text">
-                                    <h4>We have the best Gym Trainers</h4>
-                                    <p>Arcu a tellus pellentesque ultrices. Ut euismod luctus elit id eleifend. Donec
-                                        semper massa a imperdiet mattis. In vel mattis neque, nec ultricies lectus. </p>
-                                </div>
-                            </div>
-                            <div class="about-features-item">
-                                <div class="about-feature-img">
-                                    <img src="img/check.png" alt="">
-                                </div>
-                                <div class="about-feature-text">
-                                    <h4>The best fitness facilities</h4>
-                                    <p>Arcu a tellus pellentesque ultrices. Ut euismod luctus elit id eleifend. Donec
-                                        semper massa a imperdiet mattis. In vel mattis neque, nec ultricies lectus. </p>
-                                </div>
-                            </div>
-                        </div>
+                        <p class="t-text">Welcome to Kal Kreatif Gym & Fitness Centre, we exist to help you get
+                            healthier by giving you the right support at the right time and in ways you want them. We are
+                            committed to seeing you healthy inside out and at all times.
+
+                            We can help you reach your goal whatever your starting point is. Our range of fitness equipment
+                            and classes are bound to keep you addicted to staying fit.
+
+                            Our customers are our priority and we aim to provide a safe and welcoming environment for
+                            everyone. </p>
                         <a href="#" class="primary-btn">Read about topgym</a>
                     </div>
                 </div>
@@ -65,17 +47,8 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-5">
-                    <div class="skill-text">
-                        <p>Pellentesque dictum nisl in nibh dictum volutpat nec a quam. Vivamus suscipit nisl quis nulla
-                            pretium. Dictum nisl in nibh dictum volutpat nec a quam. Vivamus suscipit nisl quis nulla
-                            pretium. Dictum nisl in nibh dictum volutpat nec a quam. Vivamus suscipit nisl quis nulla
-                            pretium. Dictum nisl in nibh dictum volutpat nec a quam. Vivamus suscipit nisl quis nulla
-                            pretium.</p>
-                    </div>
-                </div>
-                <div class="col-lg-6 offset-lg-1">
+            <div class="row">>
+                <div class="col-sm-12 offset-lg-1">
                     <div class="skill-bar">
                         <div id="bar1" class="single-bar barfiller">
                             <span class="fill" data-percentage="75"></span>

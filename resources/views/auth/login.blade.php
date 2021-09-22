@@ -32,13 +32,14 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
+                        @endif
+                        @if (Session::has('server-error'))
                             <div class="alert alert-warning alert-dismissible fade show" role="alert">
                                 {{ Session::get('server-error') }}
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-
                         @endif
                         @if ($errors->any())
                             <div class="alert alert-danger alert-dismissible" role="alert">
@@ -72,7 +73,8 @@
                                             placeholder="Last Name">
                                     </div>
                                     <div class="form-group">
-                                        <input type="email" required class="form-control" name="email" placeholder="Email">
+                                        <input type="email" required class="form-control" name="email"
+                                            placeholder="Email">
                                     </div>
                                     <div class="form-group">
                                         <input type="tel" required class="form-control" name="member_phonenumber"
@@ -112,7 +114,7 @@
 
                         <div class="col-md-6">
                             <div class="form-wrap overlap element-animate">
-                                <h2 class="h2">Log in</h2>
+                                <h2 class="h2">Log in 2</h2>
                                 <form method="POST" action="/user-login">
                                     @csrf
                                     <div class="form-group">

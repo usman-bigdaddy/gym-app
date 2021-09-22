@@ -26,7 +26,8 @@
                                 @if (Session::has('success'))
                                     <div class="alert alert-success alert-dismissible fade show" role="alert">
                                         {{ Session::get('success') }}
-                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <button type="button" class="close" data-dismiss="alert"
+                                            aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
@@ -38,19 +39,26 @@
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="class_name">Class Name</label>
-                                        <input required type="text" class="form-control" name="class_name"
-                                            placeholder="Enter Class Name">
+                                        <select class="form-control" required name="class_name">
+                                            <option>HIIT</option>
+                                            <option>Cardio Blast</option>
+                                            <option>Boot Camp</option>
+                                            <option>Yoga</option>
+                                            <option>Abs Interval</option>
+                                            <option>Spin Class</option>
+                                            <option>Booking Class</option>
+                                        </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="class_duration">Class Duration</label>
-                                        <input required type="text" class="form-control" name="class_duration"
-                                            placeholder="Enter Duration (Example 2 Months)">
+                                        <input required type="text" disabled class="form-control" name="class_duration"
+                                            placeholder="45 Minutes">
                                     </div>
                                     <div class="form-group">
                                         <label for="class_description">Class Description</label>
                                         <textarea required type="text" class="form-control" name="class_description"
                                             placeholder="Enter Description">
-                                                                                    </textarea>
+                                                                                                    </textarea>
                                     </div>
                                     <div class="form-group">
                                         <label for="trainer_id">Lead Trainer</label>

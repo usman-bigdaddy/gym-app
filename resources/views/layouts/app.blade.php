@@ -20,6 +20,7 @@
     <link href="{{ asset('css/barfiller.css') }}" rel="stylesheet">
     <link href="{{ asset('css/slicknav.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
 </head>
 
 <body>
@@ -47,7 +48,7 @@
                                 <li><a href="/about">About</a></li>
                                 <li><a href="/class">Classes</a></li>
                                 <li><a href="/gym-trainers">Trainers</a></li>
-                                <li><a href="#">News</a></li>
+                                <li><a href="/extras">Extras</a></li>
                                 <li><a href="/contact">Contact</a></li>
                                 @guest
                                     <li class="main-menu-nav-item-btn">
@@ -56,12 +57,12 @@
                                     {{-- <li><a href="/user-register">Register</a></li>
                                     <li><a href="/user-login">Login</a></li> --}}
                                 @else
-                                    <li class="main-menu-nav-item-btn"><a class="nav-link" href="#">
+                                    <li class="main-menu-nav-item-btn"><a class="nav-link" href="/my-profile">
                                             {{ Auth::user()->member_firstname }}</a></li>
                                     <li class="search-btn search-trigger">
                                     <li><a class="dropdown-item" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
-                                                                                                                                                                                                                                                                                                                                      document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                                                                                                                                                                              document.getElementById('logout-form').submit();">
                                             <i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;{{ __('Logout') }}</a>
                                     </li>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST"
@@ -114,7 +115,7 @@
                                 <li><a href="/about">About us</a></li>
                                 <li><a href="/classes">Classes</a></li>
                                 <li><a href="/gym-trainers">Instructors</a></li>
-                                <li><a href="#">News</a></li>
+                                <li><a href="/extras">Extras</a></li>
                                 <li><a href="/contact">Contact</a></li>
                             </ul>
                         </div>
@@ -155,6 +156,7 @@
     <script src="{{ asset('js/circle-progress.min.js') }}"></script>
     <script src="{{ asset('js/jquery.barfiller.js') }}"></script>
     <script src="{{ asset('js/main.js') }}"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         $("#my-bmi-submit").click(function() {
             if (!($("#weight").val() === '' || $("#height").val() === '')) {

@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\Models\trainer;
 use App\Models\User;
 use App\Models\classes;
+use App\Models\feedback;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
@@ -151,4 +152,15 @@ class TrainerController extends Controller
         Item::find($id)->delete();
         return redirect('/home')->with('success',"Successfully Deleted");
     }
+    public function feedback()
+    {
+        return view('trainer.feedback')->with('feedbacks',feedback::all());
+    }
+    public function delete_feedback($id)
+    {
+        feedback::find($id)->delete();
+        return back()->with('success',"Successfully Deleted");
+    }
+    
+    
 }

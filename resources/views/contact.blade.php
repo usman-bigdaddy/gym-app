@@ -29,18 +29,45 @@
                                         </ul>
                                     </div>
                                     <div class="contact-form">
-                                        <form action="#">
+                                        <div class="col-md-12">
+                                            @if ($errors->any())
+                                                <div class="alert alert-danger alert-dismissible" role="alert">
+                                                    <button type="button" class="close" data-dismiss="alert"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true">×</span>
+                                                    </button>
+                                                    <ul>
+                                                        @foreach ($errors->all() as $error)
+                                                            <li>
+                                                                {{ $error }}
+                                                            </li>
+                                                        @endforeach
+                                                    </ul>
+                                                </div>
+                                            @endif
+                                            @if (Session::has('success'))
+                                                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                                    {{ Session::get('success') }}
+                                                    <button type="button" class="close" data-dismiss="alert"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                            @endif
+                                        </div>
+                                        <form action="/contact" method="POST">
+                                            @csrf
                                             <div class="row">
                                                 <div class="col-lg-6">
-                                                    <input required type="text" placeholder="Name">
+                                                    <input name="name" required type="text" placeholder="Name">
                                                 </div>
                                                 <div class="col-lg-6">
-                                                    <input required type="email" placeholder="Email">
+                                                    <input name="email" required type="email" placeholder="Email">
                                                 </div>
                                                 <div class="col-lg-12">
-                                                    <input required type="text" placeholder="Subject">
-                                                    <textarea required placeholder="Message"></textarea>
-                                                    <button type="submit" disabled class="site-btn">Send Message</button>
+                                                    <input name="subject" required type="text" placeholder="Subject">
+                                                    <textarea name="message" required placeholder="Message"></textarea>
+                                                    <button type="submit" class="site-btn">Send Message</button>
                                                 </div>
                                             </div>
                                         </form>

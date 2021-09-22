@@ -7,6 +7,7 @@ use App\Models\trainer;
 use App\Models\User;
 use App\Models\classes;
 use App\Models\Enrollment;
+use App\Models\feedback;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -33,9 +34,10 @@ class HomeController extends Controller
     }
     public function trainer_profile($id)
     {
-        //dd(trainer::findOrFail($id));
+        $trainer_classes = classes::where('trainer_id', $id)->get();
         return view('trainerprofile')
         ->with('breadcrumb_title', 'Trainer Profile')
+        ->with("classes",$trainer_classes)
         ->with("trainer",trainer::findOrFail($id));
     }
     public function user_login(Request $request)
@@ -88,9 +90,26 @@ class HomeController extends Controller
             return view('auth.register')->with('breadcrumb_title', 'Member');
         }
     }
-    public function contact()
+    public function contact(Request $request)
     {
-        return view('contact')->with('breadcrumb_title', 'Contact Us');
+        if ($request->isMethod('post')) {
+            $this->validate($request, [
+                'name'=>'required|max:50',
+                'email'=>'required | email|max:25',
+                'subject'=>'required | max:25',
+                'message'=>'required'
+             ]);
+             feedback::create([
+                'name' => $request['name'],
+                'email' => $request['email'],
+                'subject' => $request['subject'],
+                'message' => $request['message']
+            ]);
+            return back()->with('success', 'Feedback Successful.');
+        }
+        else{
+            return view('contact')->with('breadcrumb_title', 'Contact Us');
+        }
     }
     public function enroll($id)
     {

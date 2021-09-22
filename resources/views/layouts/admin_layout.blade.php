@@ -74,6 +74,12 @@
                                 <p>Trainers</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="/trainer/feedback">
+                                <i class="la la-table"></i>
+                                <p>Feedback</p>
+                            </a>
+                        </li>
                     @endif
                     <li class="nav-item">
                         <a href="/member">

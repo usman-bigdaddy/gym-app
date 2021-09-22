@@ -25,6 +25,9 @@
                         </div>
                     @endif
                 </div>
+                <div class="col-sm-12 mb-2">
+                    <a class="btn btn-primary" target="_blank" href="/class-schedule">Class Schedule</a>
+                </div>
                 @if (count($classes) > 0)
                     @foreach ($classes as $item)
                         <div class="col-lg-4 col-md-6">
@@ -34,7 +37,8 @@
                                 <div class="classes__item__text">
                                     <h4><a href="/trainer-profile/{{ $item->trainer_id }}">{{ $item->class_name }}</a>
                                     </h4>
-                                    <h6>{{ $item->trainer_firstname . ' ' . $item->trainer_lastname }}<span>-
+                                    <h6>Class Duration: 45 Mins</h6>
+                                    <h6>{{ $item->trainer_firstname . ' ' . $item->trainer_lastname }}<span> -
                                             {{ $item->trainer_class }}</span></h6>
                                     <a href="/enroll/{{ $item->id }}" class="class-btn">JOIN NOW</a>
                                 </div>

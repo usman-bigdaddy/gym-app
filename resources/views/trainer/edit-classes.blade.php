@@ -49,14 +49,14 @@
                                         <div class="form-group">
                                             <label for="class_duration">Class Duration</label>
                                             <input value="{{ $item->class_duration }}" required type="text"
-                                                class="form-control" name="class_duration"
+                                                class="form-control" name="class_duration" disabled
                                                 placeholder="Enter Duration (Example 2 Months)">
                                         </div>
                                         <div class="form-group">
                                             <label for="class_description">Class Description</label>
                                             <textarea required type="text" class="form-control" name="class_description"
                                                 placeholder="Enter Description">{{ $item->class_description }}
-                                                                                                                                                                        </textarea>
+                                                                                                                                                                                </textarea>
                                         </div>
                                         <div class="form-group">
                                             <label for="class_duration">Lead Trainer</label>
