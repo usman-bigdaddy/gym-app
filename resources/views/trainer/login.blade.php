@@ -91,7 +91,7 @@
 </style>
 
 <head>
-    <title>Bootstrap Login Form | Web Dev Trick</title>
+    <title>Kal Kreatif |Admin Login Form</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -129,7 +129,7 @@
                         <div class="form-group">
                             <div class="custom-control custom-checkbox">
                                 <input type="checkbox" class="custom-control-input" name="remember">
-                                <label class="custom-control-label" for="customControlInline">Remember Password</label>
+                                <label class="custom-control-label" for="customControlInline">Remember Me</label>
                             </div>
                         </div>
                         <div class="d-flex justify-content-center mt-3 login_container">
@@ -138,14 +138,14 @@
                     </form>
                 </div>
 
-                <div class="mt-4">
+                {{-- <div class="mt-4">
                     <div class="d-flex justify-content-center links">
                         Don't have an account? Contact admin</a>
                     </div>
                     <div class="d-flex justify-content-center links">
                         <a href="#">Forgot your password?</a>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>

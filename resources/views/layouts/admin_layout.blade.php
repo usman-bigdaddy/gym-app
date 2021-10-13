@@ -16,8 +16,15 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.0/css/dataTables.bootstrap4.min.css">
 </head>
 
-
 <body>
+    @auth('trainer')
+    @else
+        <?php
+        header('Location: /login/trainer');
+        exit();
+        ?>
+    @endauth
+
     <div class="wrapper">
         <div class="main-header">
             <div class="logo-header">

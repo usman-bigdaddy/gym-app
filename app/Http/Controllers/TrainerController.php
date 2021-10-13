@@ -100,9 +100,9 @@ class TrainerController extends Controller
     }
     public function dash()
     {
-        // if (!(Auth::guard('trainer')->check())) {
-        //     return redirect()->route('admin.login');
-        // }
+        if (!(Auth::guard('trainer')->check())) {
+            return redirect()->route('admin.login');
+        }
         return view('trainer.dashboard')
         ->with("trainer_count",trainer::count())
         ->with("users",User::limit(5)->get())

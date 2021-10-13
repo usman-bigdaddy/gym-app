@@ -151,8 +151,7 @@
                                     </div>
                                     <div class="form-group">
                                         @if (Route::has('password.request'))
-                                            Forgot your password? <a class="btn btn-link"
-                                                href="{{ route('password.request') }}">
+                                            Forgot your password? <a class="btn btn-link" href="/forgot-password">
                                                 {{ __('Click Here') }}
                                             </a>
                                         @endif
