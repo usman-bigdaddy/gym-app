@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Models\Enrollment;
 use Illuminate\Http\Request;
 use App\Models\trainer;
+use App\Models\Payment;
 use App\Models\classes;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -51,7 +52,7 @@ class ClassesController extends Controller
     {
         $this->validate($request, [
             'class_name'=>'required |max:50',
-            'class_description'=>'required | max:255',
+            'class_description'=>'required',
             'trainer_id'=>'required',
             'image'=>'required|image|mimes:jpeg,png,jpg,gif|max:5048'
          ]);
@@ -153,11 +154,15 @@ class ClassesController extends Controller
     }
     public function my_classes_member()
     {
-         $res =Enrollment::join('classes', 'enrollments.class_id', '=', 'classes.id')
+        $res =Enrollment::join('classes', 'enrollments.class_id', '=', 'classes.id')
         ->where('enrollments.user_id',Auth::user()->id)
         ->get(['classes.*', 'enrollments.*']);
+        $payments = Payment::where('user_id', Auth::user()->id)
+               ->orderBy('created_at')
+               ->get();
         return view('my-profile')
         ->with("classes",$res)
+        ->with("payments",$payments)
         ->with('breadcrumb_title', 'My Profile');
     }
     public function edit_member_profile(Request $request)

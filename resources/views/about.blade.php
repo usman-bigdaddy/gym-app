@@ -26,7 +26,7 @@
 
                             Our customers are our priority and we aim to provide a safe and welcoming environment for
                             everyone. </p>
-                        <a href="#" class="primary-btn">Read about topgym</a>
+                        <a href="/user-register" class="primary-btn">Join Our Gym</a>
                     </div>
                 </div>
                 <div class="col-lg-5">
@@ -42,7 +42,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">
-                        <span>Features</span>
+                        <span style="color:white">Features</span>
                         <h2 style="color: honeydew">Why Choose us?</h2>
                     </div>
                 </div>
@@ -52,21 +52,21 @@
                     <div class="skill-bar">
                         <div id="bar1" class="single-bar barfiller">
                             <span class="fill" data-percentage="75"></span>
-                            <h5>Body building</h5>
+                            <h5 style="color: #7B7B7B">Body building</h5>
                             <div class="tipWrap">
                                 <span class="tip"></span>
                             </div>
                         </div>
                         <div id="bar2" class="single-bar barfiller">
                             <span class="fill" data-percentage="95"></span>
-                            <h5>Training</h5>
+                            <h5 style="color: #7B7B7B">Training</h5>
                             <div class="tipWrap">
                                 <span class="tip"></span>
                             </div>
                         </div>
                         <div id="bar3" class="single-bar barfiller">
                             <span class="fill" data-percentage="85"></span>
-                            <h5>Fitness</h5>
+                            <h5 style="color: #7B7B7B">Fitness</h5>
                             <div class="tipWrap">
                                 <span class="tip"></span>
                             </div>
@@ -74,7 +74,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row mt-50">
+            <div class="row justify-content-md-center">
                 <div class="col-lg-3 col-sm-6">
                     <div class="single-counter">
                         <div class="counter-icon">

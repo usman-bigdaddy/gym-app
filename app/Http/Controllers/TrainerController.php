@@ -100,6 +100,9 @@ class TrainerController extends Controller
     }
     public function dash()
     {
+        // if (!(Auth::guard('trainer')->check())) {
+        //     return redirect()->route('admin.login');
+        // }
         return view('trainer.dashboard')
         ->with("trainer_count",trainer::count())
         ->with("users",User::limit(5)->get())
@@ -120,7 +123,7 @@ class TrainerController extends Controller
     }
     public function trainer_change_password(Request $request)
     {
-        //$this->middleware('auth:trainer');
+        //
         if ($request->isMethod('post')) {
             if (!(Hash::check($request->get('current-password'), Auth::guard('trainer')->user()->password))) {
                 // The passwords matches

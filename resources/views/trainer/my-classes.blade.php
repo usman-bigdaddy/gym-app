@@ -35,10 +35,6 @@
                                                                 <div class="col-xs-12">
                                                                     <a class="btn btn-success"
                                                                         href="/class-enrollments/{{ $item->id }}">View</a>
-                                                                    @if (Auth::guard('trainer')->user()->is_admin == '1')
-                                                                        <a class="btn btn-primary"
-                                                                            href="classes/{{ $item->id }}/edit">Edit</a>
-                                                                    @endif
                                                                 </div>
                                                             </div>
 

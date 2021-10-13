@@ -22,7 +22,6 @@
                                                     <th>Gender</th>
                                                     <th>Address</th>
                                                     <th>Class</th>
-                                                    <th></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -35,20 +34,6 @@
                                                         <td>{{ $item->trainer_gender }}</td>
                                                         <td>{{ $item->trainer_address }}</td>
                                                         <td>{{ $item->trainer_class }}</td>
-                                                        <td>
-                                                            <div class="row">
-                                                                <div class="col-6">
-                                                                    <a class="btn btn-primary"
-                                                                        href="items/{{ $item->id }}/edit">Edit</a>
-                                                                </div>
-                                                                <div class="col-6">
-
-                                                                </div>
-                                                            </div>
-
-                                                            {{-- <a class="btn btn-danger" href="items/{{$item->id}}/destroy">DELETE</a> --}}
-
-                                                        </td>
                                                     </tr>
                                                 @endforeach
                                             @else

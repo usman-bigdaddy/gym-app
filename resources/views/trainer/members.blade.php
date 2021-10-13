@@ -21,6 +21,7 @@
                                                     <th>Phone</th>
                                                     <th>Gender</th>
                                                     <th>Status</th>
+                                                    <th>Receipt</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -44,6 +45,19 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="row">
+                                                                <div class="col-xs-12">
+                                                                    @if (Auth::guard('trainer')->user()->is_admin == '1')
+                                                                        <a class="btn btn-primary"
+                                                                            href="payment/{{ $item->id }}">Process</a>
+                                                                    @endif
+                                                                </div>
+                                                            </div>
+
+                                                            {{-- <a class="btn btn-danger" href="items/{{$item->id}}/destroy">DELETE</a> --}}
+
                                                         </td>
                                                     </tr>
                                                 @endforeach

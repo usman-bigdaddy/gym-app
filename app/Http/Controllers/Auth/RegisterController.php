@@ -54,7 +54,6 @@ class RegisterController extends Controller
             'member_firstname'=>'required | max:25',
             'member_lastname'=>'required | max:25',
             'member_phonenumber'=>'required | max:12',
-            'member_address'=>'required | max:265',
             'member_gender'=>'required | max:8',
             'password'=>'required | min:4 |confirmed'
         ]);
@@ -73,7 +72,7 @@ class RegisterController extends Controller
             'member_firstname' => $data['member_firstname'],
             'member_lastname' => $data['member_lastname'],
             'member_phonenumber' => $data['member_phonenumber'],
-            'member_address' => $data['member_address'],
+            'member_address' => '',
             'member_gender' => $data['member_gender'],
             'password' => Hash::make($data['password']),
         ]);

@@ -66,13 +66,21 @@
             <form method="post">
                 <div class="row">
                     <div class="col-md-4">
-                        <div class="profile-img">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog"
-                                alt="Profile Image" />
-                            <div class="file btn btn-lg btn-primary">
-                                Change Photo
-                                <input type="file" name="file" />
-                            </div>
+                        <div
+                            style="
+                                                                                                                                                                                    text-transform: uppercase;
+                                                                                                                                                                                    letter-spacing: .2em; color: #fff; 
+                                                                                                                                                                                   
+                                                                                                                                                                                    width: 230px;
+                                                                                                                                                                                    background: #2E8B57;
+                                                                                                                                                                                    height: 130px;
+                                                                                                                                                                                    border:2px solid #2E8B57; 
+                                                                                                                                                                                    border-radius: 5px 40px 40px 5px; padding: 9px; margin-bottom: 100px;
+                                                                                                                                                                                    text-align: center;">
+                            <h2 style="color: white; font-size: 50px; padding-top: 30px;">
+                                {{ Str::of(Auth::user()->member_firstname)->limit(1, '') . '' . Str::of(Auth::user()->member_lastname)->limit(1, '') }}
+                            </h2>
+
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -92,9 +100,8 @@
                                 </div>
                             @endif
                             @if (Session::has('success'))
-                                <div id="success_alert" class="alert alert-success alert-dismissible fade show"
-                                    role="alert">
-                                    <p id="theMessage"></p>
+                                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                    {{ Session::get('success') }}
                                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -122,6 +129,15 @@
                                     <a class="nav-link" id="profile-tab" data-toggle="tab" href="#change-password"
                                         role="tab" aria-controls="profile" aria-selected="false">Change Password</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#upload_panel"
+                                        role="tab" aria-controls="profile" aria-selected="false">Upload Receipt</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#history_panel"
+                                        role="tab" aria-controls="profile" aria-selected="false">History </a>
+                                </li>
+
                             </ul>
                         </div>
                     </div>
@@ -246,6 +262,47 @@
                                             class="btn btn-primary btn-block py-3" value="Change Password" />
                                     </div>
                                 </form>
+                            </div>
+                            <div class="tab-pane fade" id="upload_panel" role="tabpanel" aria-labelledby="profile-tab">
+                                <form enctype="multipart/form-data" action="/payment" method="POST">
+                                    @csrf
+                                    <div class="upload-container">
+                                        <input type="file" name="image" accept="image/*" required id="file_upload" />
+                                    </div>
+                                    <br>
+                                    <input type="submit" value="Upload" class="upload-btn" />
+                                </form>
+                            </div>
+                            <div class="tab-pane fade" id="history_panel" role="tabpanel" aria-labelledby="profile-tab">
+                                <div class="row">
+                                    <div class="table-responsive">
+                                        @if (count($payments) > 0)
+                                            <table id="my-trainers-table" class="table table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th>S/N </th>
+                                                        <th>Date Uploaded </th>
+                                                        <th>Image</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach ($payments as $item)
+                                                        <tr>
+                                                            <td>{{ $loop->iteration }}</td>
+                                                            <td>{{ $item->created_at }}</td>
+                                                            <td> <a href="{{ asset($item->image) }}"> <img
+                                                                        style="height: 40px"
+                                                                        src={{ asset($item->image) }} />
+                                                                </a></td>
+                                                        </tr>
+                                                    @endforeach
+                                                @else
+                                                    <br />No Payment(s)
+                                        @endif
+                                        </tbody>
+                                        </table>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

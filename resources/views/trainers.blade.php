@@ -7,15 +7,6 @@
     <section class="team-section team-page spad">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
-                    <div class="team-title">
-                        <div class="section-title">
-                            <span>Our Team </span>
-                            <h5 style="">TRAIN WITH EXPERTS</h5>
-                        </div>
-                        <a href="#" class="primary-btn btn-normal appoinment-btn">appointment</a>
-                    </div>
-                </div>
                 @foreach ($trainers as $item)
                     <div class="col-lg-4 col-sm-6">
                         <div class="ts-item set-bg" data-setbg={{ $item->image }}>

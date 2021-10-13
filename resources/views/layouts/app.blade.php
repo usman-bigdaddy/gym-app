@@ -62,7 +62,7 @@
                                     <li class="search-btn search-trigger">
                                     <li><a class="dropdown-item" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
-                                                                                                                                                                                                                                                                                                                                                              document.getElementById('logout-form').submit();">
+                                                                                                                                                                                                                                                                                                                                                                                                  document.getElementById('logout-form').submit();">
                                             <i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;{{ __('Logout') }}</a>
                                     </li>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST"
@@ -79,49 +79,26 @@
             </div>
         </div>
     </header>
-
-
-
-
-    <!-- Search Bar Begin -->
-    <section class="search-bar-wrap">
-        <span class="search-close"><i class="fa fa-close"></i></span>
-        <div class="search-bar-table">
-            <div class="search-bar-tablecell">
-                <div class="search-bar-inner">
-                    <h2>Search</h2>
-                    <form action="#">
-                        <input type="search" placeholder="Type Keywords">
-                        <button type="submit">Search</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Search Bar End -->
-
-
-
     @yield('content')
     <!-- Footer Section Begin -->
     <footer class="footer-section set-bg" data-setbg="{{ asset('img/footer-bg.jpg') }}">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="footer-content">
+                    <div style="margin-top: 30px" class=" footer-content">
                         <div class="footer-menu">
                             <ul>
                                 <li><a href="/">Home</a></li>
-                                <li><a href="/about">About us</a></li>
-                                <li><a href="/classes">Classes</a></li>
-                                <li><a href="/gym-trainers">Instructors</a></li>
+                                <li><a href="/about">About</a></li>
+                                <li><a href="/class">Classes</a></li>
+                                <li><a href="/gym-trainers">Trainers</a></li>
                                 <li><a href="/extras">Extras</a></li>
                                 <li><a href="/contact">Contact</a></li>
                             </ul>
                         </div>
                         <div class="subscribe-form">
                             <form action="#">
-                                <input type="text" placeholder="your Email">
+                                <input required type="text" placeholder="your Email">
                                 <button type="submit">Sign Up</button>
                             </form>
                         </div>

@@ -10,7 +10,14 @@
 (function ($) {
     $("#changePasswordButton").click(function (e) {
         e.preventDefault();
-
+        if (
+            $("#current-password").val() === "" ||
+            $("#new-password").val() === "" ||
+            $("#new-password-confirm").val() === ""
+        ) {
+            Swal.fire("Please fill form completely");
+            return;
+        }
         Swal.fire({
             title: "Do you want to save the changes?",
             showDenyButton: true,
@@ -225,15 +232,15 @@
         Barfiller
     --------------------*/
     $("#bar1").barfiller({
-        barColor: "#233EDE",
+        barColor: "#2E8B57",
         duration: 2000,
     });
     $("#bar2").barfiller({
-        barColor: "#233EDE",
+        barColor: "#2E8B57",
         duration: 2000,
     });
     $("#bar3").barfiller({
-        barColor: "#233EDE",
+        barColor: "#2E8B57",
         duration: 2000,
     });
 

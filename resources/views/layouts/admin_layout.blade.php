@@ -16,17 +16,23 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.0/css/dataTables.bootstrap4.min.css">
 </head>
 
+
 <body>
     <div class="wrapper">
         <div class="main-header">
+            <div class="logo-header">
+                <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse"
+                    data-target="collapse" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <button class="topbar-toggler more"><i class="la la-ellipsis-v"></i></button>
+            </div>
             <nav class="navbar navbar-header navbar-expand-lg">
                 <div class="container-fluid">
-
                     <ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
-
-
                         <li class="nav-item dropdown">
-                            <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
+                            <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"
+                                aria-expanded="false">
                                 <img src="{{ asset(Auth::guard('trainer')->user()->image) ?? '' }}" alt="user-img"
                                     width="36" class="img-circle"><span>Hi
                                     {{ Auth::guard('trainer')->user()->trainer_firstname }}</span></span>
@@ -40,7 +46,8 @@
                                         <div class="u-text">
                                             <h4>{{ Auth::guard('trainer')->user()->trainer_firstname . ' ' . Auth::guard('trainer')->user()->trainer_lastname }}
                                             </h4>
-                                            <p class="text-muted">{{ Auth::guard('trainer')->user()->email }}</p>
+                                            <p class="text-muted">{{ Auth::guard('trainer')->user()->email }}
+                                            </p>
                                         </div>
                                     </div>
                                 </li>
@@ -51,9 +58,6 @@
                                 <a class="dropdown-item" href="/trainer-logout"><i class="fa fa-power-off"></i>
                                     Logout</a>
                             </ul>
-                            <!-- /.dropdown-user -->
-                        </li>
-                    </ul>
                 </div>
             </nav>
         </div>
@@ -103,8 +107,8 @@
                 </ul>
             </div>
         </div>
-
         @yield('admin_content')
+
     </div>
     </div>
 </body>
@@ -115,12 +119,12 @@
 <script src="{{ asset('assets/js/core/bootstrap.min.js') }}"></script>
 <script src="{{ asset('assets/js/plugin/chartist/chartist.min.js') }}"></script>
 <script src="{{ asset('assets/js/plugin/chartist/plugin/chartist-plugin-tooltip.min.js') }}"></script>
-{{-- <script src="{{ asset('assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js') }}"></script> --}}
 <script src="{{ asset('assets/js/plugin/bootstrap-toggle/bootstrap-toggle.min.js') }}"></script>
 <script src="{{ asset('assets/js/plugin/jquery-mapael/jquery.mapael.min.js') }}"></script>
 <script src="{{ asset('assets/js/plugin/jquery-mapael/maps/world_countries.min.js') }}"></script>
 <script src="{{ asset('assets/js/plugin/chart-circle/circles.min.js') }}"></script>
 <script src="{{ asset('assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js') }}"></script>
+<script src="{{ asset('assets/js/ready.min.js') }}"></script>
 <script src="{{ asset('assets/js/demo.js') }}"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src="https://cdn.datatables.net/1.11.0/js/jquery.dataTables.min.js"></script>

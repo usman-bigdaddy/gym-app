@@ -2,48 +2,7 @@
 
 @section('content')
 
-    <!-- Modal -->
-    <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel"></h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="col-md-12">
-                        <div style="" class="form-wrap overlap primary element-animate">
-                            <h2 class="h2">Payment Instructions</h2>
-                            <style>
-                                .paymentinfo {
-                                    color: black
-                                }
-
-                            </style>
-                            <p class="paymentinfo">Account Name: KAL KREATIF PROMOTIONS LIMITED </p>
-                            <p class="paymentinfo">Account Bank: Diamond Access</p>
-                            <p class="paymentinfo">Account Number: 0099316450</p>
-                            <p class="paymentinfo">After payment, you can either</p>
-                            <ul style="margin-left: 20px" type="1">
-                                <li>login to your account and upload evidence of payment from your profile tab or</li>
-                                <li>take your evidence of payment and show it to the front desk at the Gym</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!--Modal End -->
-
-
+    @include('payment-modal')
     <!-- Hero Slider Section Begin -->
     <section class="hero-slider">
         <div class="slide-items owl-carousel">
@@ -95,10 +54,7 @@
                                     <li>No Guest Pass</li>
                                     <li>No Freeze Subscription</li>
                                 </ul>
-                                <button type="button" class="btn-success " data-toggle="modal"
-                                    data-target="#staticBackdrop">
-                                    Pay
-                                </button>
+                                <a data-toggle="modal" href="#staticBackdrop" class="btn">Pay</a>
                             </div>
                         </div>
                         <div class="col-md-4 club-card-col">
@@ -113,12 +69,9 @@
                                     <li>All Day Access</li>
                                     <li>40+ Free Group Classes</li>
                                     <li>One Guest Pass per Month</li>
-                                    <li>Freeze Subscription Request <br>(10 Days Per Annum)</li>
+                                    <li>Freeze Subscription Request</li>
                                 </ul>
-                                <button type="button" class="btn-success " data-toggle="modal"
-                                    data-target="#staticBackdrop">
-                                    Pay
-                                </button>
+                                <a data-toggle="modal" href="#staticBackdrop" class="btn">Pay</a>
                             </div>
                         </div>
                         <div class="col-md-4 club-card-col">
@@ -133,72 +86,68 @@
                                     <li>All Day Access</li>
                                     <li>40+ Free Group Classes</li>
                                     <li>Two Guest Pass per Month</li>
-                                    <li>Freeze Subscription Request <br>(20 Days Per Annum)</li>
+                                    <li>Freeze Subscription Request</li>
                                 </ul>
-                                <button type="button" class="btn-success " data-toggle="modal"
-                                    data-target="#staticBackdrop">
-                                    Pay
-                                </button>
+                                <a data-toggle="modal" href="#staticBackdrop" class="btn">Pay</a>
                             </div>
                         </div>
 
                     </div>
                 </div>
-    </section>
-    <!-- Membership Section End -->
-
-    <!-- Services Section Begin -->
-    <section class="services-section spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <div class="section-title">
-                        <h2 style="color: white">Classes</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-3 col-sm-6">
-                    <div class="single-service">
-                        <img src={{ asset('images/pilates.jpg') }} alt="">
-                        <h5>HIIT</h5>
-                        <p>Pellentesque dictum nisl in nibh dictum volutpat nec a quam. Vivamus suscipit nisl quis nulla
-                            pretium.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="single-service c-text">
-                        <img src={{ asset('images/body-building.jpg') }} alt="">
-                        <h5>Cardio Blast</h5>
-                        <p>Pellentesque dictum nisl in nibh dictum volutpat nec a quam. Vivamus suscipit nisl quis nulla
-                            pretium.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="single-service">
-                        <img src={{ asset('images/yoga.jpg') }} alt="">
-                        <h5>Boot Camp</h5>
-                        <p>Pellentesque dictum nisl in nibh dictum volutpat nec a quam. Vivamus suscipit nisl quis nulla
-                            pretium.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="single-service">
-                        <img src={{ asset('images/cardio.jpg') }} alt="">
-                        <h5>Yoga</h5>
-                        <p>Pellentesque dictum nisl in nibh dictum volutpat nec a quam. Vivamus suscipit nisl quis nulla
-                            pretium.</p>
-                    </div>
-                </div>
             </div>
             <div class="row p-70">
                 <div class="col-lg-12 text-center">
-                    <a href="/class" class=" service-btn primary-btn">see more</a>
+                    <a href="/membership-plan" class=" service-btn primary-btn">see more</a>
+                </div>
+            </div>
+    </section>
+    <!-- Membership Section End -->
+
+
+
+
+    <!-- Classes Section Begin -->
+    <section class="classes-index spad">
+        <div class="container">
+            <div class="classes__filter">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <div class="section-title">
+                            <h2 style="color: white">Classes</h2>
+                        </div>
+                    </div>
+
+                    @foreach ($classes as $item)
+                        <div class="col-lg-4 col-md-6">
+                            <div class="classes__item classes__item__page">
+                                <div class="classes__item__pic set-bg" data-setbg={{ asset($item->class_image) }}>
+                                </div>
+                                <div class="classes__item__text">
+                                    <h4><a href="#">{{ $item->class_name }} </a></h4>
+                                    <p>{{ $item->class_description }}.
+                                    </p>
+                                    <ul>
+                                        <li><span class="fa fa-money"></span> ₦2,000</li>
+                                        <li><span class="fa fa-clock-o"></span> 45 MINS</li>
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                    <div class="col-lg-12 text-center">
+                        <a href="/class" class="service-btn primary-btn">see more</a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- Services Section End -->
+    </div>
+    </div>
+    </section>
+    <!-- Classes Section End -->
+
+
 
     <!-- Trainers section -->
     <section class="trainers-section">
@@ -206,27 +155,29 @@
             <div class="section-title text-center">
                 <h2>Meet the <span>Trainers</span></h2>
             </div>
-            <div class="row">
+            <div class="row justify-content-md-center">
                 @foreach ($trainers as $item)
                     <div class="col-lg-3 col-sm-6">
                         <div class="trainer-item">
                             <div class="trainer-pic">
                                 <img src="{{ $item->image }}" alt="">
                             </div>
-                            <h4> {{ $item->trainer_firstname }}<?php echo ' '; ?>{{ $item->trainer_lastname }}
-                            </h4>
-                            <p> {{ $item->trainer_class }}</p>
-
+                            <a href="trainer-profile/{{ $item->id }}">
+                                <h4> {{ $item->trainer_firstname }}<?php echo ' '; ?>{{ $item->trainer_lastname }}
+                                </h4>
+                                <p> {{ $item->trainer_class }}</p>
+                            </a>
                         </div>
                     </div>
                 @endforeach
-                <div class="col-lg-12 text-center">
-                    <a href="/gym-trainers" class="service-btn primary-btn">see more</a>
-                </div>
+            </div>
+            <div class="col-lg-12 text-center">
+                <a href="/gym-trainers" class="service-btn primary-btn">see more</a>
             </div>
         </div>
+        </div>
     </section>
-    <!-- Trainers section end -->
+
 
     {{-- <!-- Upcoming Event Begin -->
     <section class="upcoming-event-section spad-2">

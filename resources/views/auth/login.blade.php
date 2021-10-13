@@ -62,7 +62,7 @@
                         <div class="col-md-6">
                             <div class="form-wrap overlap primary element-animate">
                                 <h2 class="h2">Become A Member</h2>
-                                <form method="POST" action="/user-register">
+                                <form method="POST" action="{{ route('register') }}">
                                     @csrf
                                     <div class="form-group">
                                         <input type="text" required class="form-control" name="member_firstname"
@@ -114,7 +114,7 @@
 
                         <div class="col-md-6">
                             <div class="form-wrap overlap element-animate">
-                                <h2 class="h2">Log in 2</h2>
+                                <h2 class="h2">Log in</h2>
                                 <form method="POST" action="/user-login">
                                     @csrf
                                     <div class="form-group">

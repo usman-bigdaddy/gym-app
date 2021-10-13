@@ -30,7 +30,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('welcome')->with("trainers",trainer::all());;
+        return view('welcome')
+        ->with("trainers",trainer::limit(3)->get())
+        ->with("classes",classes::limit(3)->get());
     }
     public function trainer_profile($id)
     {
@@ -45,7 +47,7 @@ class HomeController extends Controller
         if ($request->isMethod('post')) {
                 $this->validate($request, [
                     'email'   => 'required|email',
-                    'password' => 'required|max:6'
+                    'password' => 'required|max:10'
                 ]);
                 // if (Auth::attempt(['email' => $request->email, 'password' => $request->password, 'active' => 1])) 
                 //{
@@ -74,7 +76,7 @@ class HomeController extends Controller
                 'member_gender'=>'required | max:8',
                 'password'=>'required | min:4 |confirmed'
              ]);
-            User::create([
+            $user = User::create([
                 'email' => $request['email'],
                 'member_firstname' => $request['member_firstname'],
                 'member_lastname' => $request['member_lastname'],
@@ -83,6 +85,7 @@ class HomeController extends Controller
                 'member_gender' => $request['member_gender'],
                 'password' => Hash::make($request['password']),
             ]);
+           
             return back()->with('success', 'Registration Successful.');
         }
         else{
@@ -113,7 +116,9 @@ class HomeController extends Controller
     }
     public function enroll($id)
     {
-    
+        // if (!(Auth::check())) {
+        //    return redirect('/user-register');
+        // }
         $count = Enrollment::where('user_id','=',auth()->user()->id)
         ->where('class_id','=',$id)
         ->count();

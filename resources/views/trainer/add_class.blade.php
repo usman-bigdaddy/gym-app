@@ -40,13 +40,15 @@
                                     <div class="form-group">
                                         <label for="class_name">Class Name</label>
                                         <select class="form-control" required name="class_name">
-                                            <option>HIIT</option>
-                                            <option>Cardio Blast</option>
+                                            <option>High Intensity Interval Training (HIIT)</option>
+                                            <option>Cardio Blast/
+                                                Aerobics</option>
                                             <option>Boot Camp</option>
                                             <option>Yoga</option>
                                             <option>Abs Interval</option>
                                             <option>Spin Class</option>
                                             <option>Booking Class</option>
+                                            <option>Dance Class</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
@@ -55,10 +57,15 @@
                                             placeholder="45 Minutes">
                                     </div>
                                     <div class="form-group">
+                                        <label for="class_duration">Class Amount</label>
+                                        <input required type="text" disabled class="form-control" name="class_amount"
+                                            placeholder="N2,000">
+                                    </div>
+                                    <div class="form-group">
                                         <label for="class_description">Class Description</label>
                                         <textarea required type="text" class="form-control" name="class_description"
                                             placeholder="Enter Description">
-                                                                                                    </textarea>
+                                                                                                                        </textarea>
                                     </div>
                                     <div class="form-group">
                                         <label for="trainer_id">Lead Trainer</label>
